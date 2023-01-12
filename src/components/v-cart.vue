@@ -1,9 +1,14 @@
 <template>
     <div class="v-cart">
         <h1>Cart</h1>
-        <vCartItem/>
+        <vCartItem
+            v-for="item in cart_data"
+            :key="item.article"
+            :cart_item_data="item"
+        />
     </div>
 </template>
+
 
 <script>
 import vCartItem from './v-cart-item.vue';
@@ -11,10 +16,18 @@ export default {
     name: "v-cart",
     components: {vCartItem},
     data() {
-        return {
-
-        }
+        // return {
+        //     cart_data: [{}]
+        // }
     },
+    props: {
+        cart_data: {
+            type: Array,
+            default() {
+                return []
+            }
+        }
+    }
 }
 </script>
 

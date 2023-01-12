@@ -4,6 +4,7 @@
         <p>{{ product_data.name }}</p>
         <p>Price: {{ product_data.price }} C</p>
         <button
+            @click="addToCart"
         >Add to cart</button>
     </div>
 </template>
@@ -25,7 +26,9 @@ export default {
         }
     },
     methods: {
-        
+        addToCart() {
+            this.$emit('addToCart', this.product_data)
+        }
     }
 }
 </script>

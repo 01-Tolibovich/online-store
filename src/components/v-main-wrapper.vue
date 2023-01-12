@@ -1,7 +1,10 @@
 <template>
     <div class="v-maim-wrapper">
         <vCatalog />
-        <vCart />
+            <vCart 
+                v-if="CART.length"
+                :cart_data="CART"
+            />
     </div>
 </template>
 
@@ -15,6 +18,11 @@ components: { vCatalog, vCart },
         return {
             title: 'Main wrapper'
         }
+    },
+    computed: {
+        ...mapGetters([
+            'CART'
+        ])
     }
 }
 </script>
@@ -27,5 +35,9 @@ components: { vCatalog, vCart },
     align-items: center;
     max-width: 1000px;
     margin: 0 auto;
+
+    .v-cart {
+        width: 100%;
+    }
 }
 </style>
