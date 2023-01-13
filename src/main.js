@@ -6,7 +6,8 @@ import App from './App.vue'
 // import { Store } from 'vuex'
 // import store from 'vuex'
 import store from './store'
+import router from './router/router'
 
 createApp(App)
-.use(store)
+.use(store, router)
 .mount('#app')
